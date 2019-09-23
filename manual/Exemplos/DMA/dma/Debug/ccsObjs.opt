@@ -1,0 +1,1 @@
+"./src/dmaEnable.obj" "./src/dmaFrameStat.obj" "./src/dmaInit.obj" "./src/dmaReset.obj" "./src/dmaTest.obj" "./src/emifInit.obj" "../VC5502.cmd" -llibc.a -l"C:/ti/ccsv7/tools/compiler/c5500_4.4.1/lib/rts55x.lib" 
