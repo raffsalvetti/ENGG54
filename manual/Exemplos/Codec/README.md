@@ -119,8 +119,9 @@ EZDSP5502_MCBSP_write( sinetable[0] );      // Canal direito depois
 Para consultar o mapa de registradores do codec e suas funções, veja o [datasheet](http://www.ti.com/product/TLV320AIC3204 "Datasheet AIC3204") do mesmo. Este é um passo importante para verificar se está com as configurações adequadas ao seu projeto. São esses valores que são utilizados nas funções AIC3204_rset e AIC3204_rget acima descritas.
 
 ## Programa exemplo
-O programa exemplo consiste num loop infinito em que caso seja pressionado um botão, uma música é tocada usando ondas quadradas e caso seja pressionado o outro botão, começa a soar um alarme criado a partir de look up table pré gerada de onda
-senoidal.
+O programa exemplo consiste num loop infinito em que caso seja pressionado um botão, uma música é tocada usando ondas quadradas e caso seja pressionado o outro botão, começa a soar um alarme criado a partir de look up table pré gerada de onda senoidal.  
+
+[Clique aqui](https://imgur.com/a/TsjAXtQ "Demonstração do Codec AIC3204 do EZDSP5502") para assistir a um vídeo curto de demonstração do programa executando e produzindo som.
 
 ```c
 //Inicialização da placa e esperas
