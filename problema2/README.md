@@ -1,4 +1,4 @@
-# ENGG54
+# Processador multiefeitos para áudio
 
 ## Introdução:
   Os módulos embarcados DSPs podem ser utilizados no tratamento de áudio seja de voz ou na alteração de sinais para gerar efeitos não inerentes do Sinal. Tal trabalho tem como objetivo reproduzir na arquitetura TMS320C55x efeitos utilizados em guitarras elétricas.  O principal objeto de estudo nesse processo de desenvolvimento se fundamenta no processamento digital de audio e à utilização de componentes presentes no kit de desenvolvimento que ajudam neste processo. 
