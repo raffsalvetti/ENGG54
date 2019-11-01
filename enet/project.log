@@ -1,0 +1,31 @@
+
+!CONFIGURATION: 'com.ti.ccstudio.buildDefinitions.C5500.Debug.364991062' [Fri Nov 01 09:48:22 BRT 2019]
+
+	!TOOL: 'com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.compilerDebug.1910269513'
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.compilerID.INCLUDE_PATH
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.compilerID.DEBUGGING_MODEL
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.compilerID.DIAG_WARNING
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.compilerID.MEMORY_MODEL
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.compilerID.PTRDIFF_SIZE
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.compilerID.SILICON_VERSION
+
+	!TOOL: 'com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.linkerDebug.1423981835'
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.linkerID.generatedLinkerCommandFiles
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.linkerID.LIBRARY
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.linkerID.SEARCH_PATH
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.linkerID.MAP_FILE
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.linkerID.OUTPUT_FILE
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.3.linkerID.XML_LINK_INFO
+
