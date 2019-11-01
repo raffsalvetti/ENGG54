@@ -1,0 +1,1 @@
+"./bsl/ezdsp5502.obj" "./bsl/ezdsp5502_gpio.obj" "./bsl/ezdsp5502_i2c.obj" "./bsl/ezdsp5502_i2cgpio.obj" "./bsl/ezdsp5502_mcbsp.obj" "../ezdsp5502bsl.lib" 
