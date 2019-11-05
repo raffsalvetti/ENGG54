@@ -146,7 +146,7 @@ Int16 aic3204_tone_headphone()
     Uint16 sample = 0; //Índice de amostras
     Uint16 counter = 0; //Contador para limitar o uso do filtro e permitir uma melhor leitura dos push-buttons
                         //*Não foi possível usar interrupção de I2C (datasheet não explica bem como funciona e ativa-lo);
-    Uint16 filtro = 0; //Variável que armazena opção de filtro a ser utilizada;
+    Uint16 filtro = 4; //Variável que armazena opção de filtro a ser utilizada;
     Uint16 flag_wah = 0; //Indica se Fc deve incrementar ou decrementar
 
 
@@ -159,11 +159,11 @@ Int16 aic3204_tone_headphone()
                                                         //'yl' indica que é saida y lado esquerdo
     Int32 yrlow[2]={0}, yrmed[2]={0}, yrhigh[2]={0};
 
-    float F1, damping = 0.02, q; //F1 = 2*sen*(pi*(Fc/Fs));
+    float F1, damping = 0.7, q; //F1 = 2*sen*(pi*(Fc/Fs));
     //Int32 Fs = 44100, Fw = 2000, Fc = 500; //Valores ajustáveis para o WahWah
     //Int32 Fmin = 400, Fmax = 5000;
     float Fs = 44100, Fw = 12000, Fc = 500;  //Ajuste a relação Fw/Fs para determinar uma subida/descida mais rápida(veja "float delta" abaixo)
-    float Fmin = 400, Fmax = 3000;
+    float Fmin = 400, Fmax = 4000;
 
     float delta = Fw/ Fs;
     q = 2*damping; //Valor de damping
@@ -330,13 +330,13 @@ Int16 aic3204_tone_headphone()
                     y1_out = 0;
                     y2_out = 0;
 
-                    for(sample=0; sample <2; sample++){ //Limpar valores anteriores de saida
-                        yllow[sample] = 0;
-                        ylmed[sample]=0;
-                        ylhigh[sample]=0;
-                        yrlow[sample]=0;
-                        yrmed[sample]=0;
-                        yrhigh[sample]=0;
+                    for(sample=2; sample >=1; sample--){ //Limpar valores anteriores de saida
+                        yllow[sample-1] = 0;
+                        ylmed[sample-1]=0;
+                        ylhigh[sample-1]=0;
+                        yrlow[sample-1]=0;
+                        yrmed[sample-1]=0;
+                        yrhigh[sample-1]=0;
                     }
 
                     //Reseta valor de Fc para menor
@@ -344,7 +344,6 @@ Int16 aic3204_tone_headphone()
 
                     for (sample = 0; sample < 44100; sample++){
                         //Trecho para auto WahWah
-                        //(sample > 22025)? (F1 = 2*sin(pi*Fc/Fs*0.00007*sample)): (F1 = 2*sin(pi*Fc/Fs*0.00007*(Fs-sample)));
                         if(!flag_wah){ //Se flag_wah = 0, entao cresce Fc.
                             (Fc < Fmax)? (Fc = Fc + delta):(flag_wah = 1); //Se Fc atingir limite, altera flag_wah para 1;
                         }else{
@@ -352,10 +351,11 @@ Int16 aic3204_tone_headphone()
                         }
 
 
+
                         F1 = 2*sin(pi*Fc/Fs);
                         EZDSP5502_MCBSP_read(&left_data); //Lê canal esquerdo
                         EZDSP5502_MCBSP_read(&right_data); // direito
-
+                            //if(left_data ==0 ){
                         //////////////TRECHO PARA FAZER O DESLOCAMENTO DE AMOSTRAS (ATRASO)
                            for(j=1; j > 0; j--){
 
@@ -411,7 +411,11 @@ Int16 aic3204_tone_headphone()
 
                            EZDSP5502_MCBSP_write(y1_out);
                            EZDSP5502_MCBSP_write(y2_out);
-                                       }
+                       }
+                    y1_out=0;
+                    y2_out=0;
+                    y1=0;
+                    y2=0;
                   break;
 
                 default:
