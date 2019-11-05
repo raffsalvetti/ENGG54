@@ -41,7 +41,7 @@ Réplica do eco produzido que irá cancelar o eco acústico pelo componente em d
 			y(n) = ⨊wl(n)*x(n-l)
 
 Implementação do cancelamento do eco adaptativo, código em C
-/C
+#c
 If (farFlag == 1)					//Existe uma fala distante
 {
 	If ((nearFlag == 0) || (trainTime > 0))		//modo de recepção
